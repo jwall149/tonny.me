@@ -49,12 +49,12 @@ author:
       url:
 home:
   section1: <h1>Brainy Tech</h1>
-  section2: <h2>Life's a journeys, not a race</h2><h2>Coding need test cases, not debug</h2>
+  section2: <h2>Life's a journeys, not a race</h2><h2>Coding need test cases, not some traces</h2>
   section3: <div class="social-links"><a class="ico-github btn" href="https://github.com/jwall149" title="View on GitHub"></a></div>
 blog:
   cc_license: https://www.apache.org/licenses/LICENSE-2.0
   cc_license_image: http://apache.org/images/SupportApache-small.png
-  footer_content: Roads were made for journeys, not destination. Codes were made for fantasy, not frustration @<a href="https:/tonny.me">Tonny Pham</a>.
+  footer_content: Roads were made for journeys, not destination. <br/> Codes were made for fantasy, not frustration <br/>@<a href="https:/tonny.me">Tonny Pham</a>.
 
 disqus:
   shortname: # e.g. yizeng
