@@ -2,6 +2,7 @@
 layout: post
 title: "Tech blog with gfm on your own domain over ssl"
 description: "Solution for a zero cost but scalable tech blog with Github flavor markdown on a custom domain over SSL"
+keywords: 'jekyll,github-pages,cloudflare,scalable,markdown,blog'
 categories: [blog]
 tags: [blog,jekyll,github,cloudflare]
 redirect_from:

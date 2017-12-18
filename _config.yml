@@ -25,8 +25,8 @@ sass:
 # url: http://tonny.me
 # baseurl: /
 title: Brainy Tech Blog
-description: "A gem-based responsive simple texture styled Jekyll theme."
-keywords: 'jekyll,theme,gem-based,blog'
+description: "A thoughtfully written blog from smartass for smartass. Covering technical issues, security issues, tech stacks, best practices and grand discussions over the scalable real-life problems."
+keywords: 'technical blog,security,best practices,code convention,tech stacks'
 author:
   name: Tonny Pham
   job_title: Senior Engineer
