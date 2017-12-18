@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Brainy Tech Blog
-email: (ai-tee-s)(at)tonny.me
+email: its(at)this.domain
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -27,7 +27,7 @@ github_username:  jwall149
 # Build settings
 markdown: kramdown
 theme: minima
-remote_theme: yizeng/jekyll-theme-simple-texture
+# remote_theme: yizeng/jekyll-theme-simple-texture
 plugins:
   - jekyll-feed
 
