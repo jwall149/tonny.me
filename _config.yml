@@ -1,0 +1,69 @@
+# Site Settings
+encoding: UTF-8
+exclude: ["*.gem", "*.gemspec", "Gemfile", "Gemfile.lock", "node_modules", "Rakefile", "starter-kit", "vendor"]
+lang: en # Language code as defined in _data/i18n.yml. en, en-gb, en-us, zh, zh-cn, zh-tw etc.
+permalink: /blog/:year/:month/:day/:title/
+
+whitelist: [jekyll-feed, jekyll-redirect-from, jekyll-seo-tag, jekyll-sitemap]
+plugins:
+  - jekyll-feed
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jemoji
+
+markdown: kramdown
+kramdown:
+  auto_id_prefix: 'heading-'
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+  toc_levels: 1..3
+
+sass:
+  style: compressed
+
+# Site Data
+# url: http://tonny.me
+# baseurl: /
+title: Brainy Tech Blog
+description: "A thoughtfully written blog from smartass for smartass. Covering technical issues, security issues, tech stacks, best practices and grand discussions over the scalable real-life problems."
+keywords: 'technical blog,security,best practices,code convention,tech stacks'
+author:
+  name: Tonny Pham
+  job_title: Senior Engineer
+  location: Tokyo
+  email: its(at)thisdomain
+  social_links:
+    - name: facebook
+      url:
+    - name: github
+      url: https://github.com/jwall149
+    - name: instagram
+      url:
+    - name: linkedin
+      url: https://www.linkedin.com/in/tonny-pham/
+    - name: stackoverflow
+      url: https://stackoverflow.com/users/1041286/jwall
+    - name: twitter
+      url: https://twitter.com/tech_tonny
+    - name: vk
+      url:
+home:
+  section1: <h1>Brainy Tech</h1>
+  section2: <h2>Life's a journeys, not a race</h2><h2>Coding need test cases, not some traces</h2>
+  section3: <div class="social-links"><a class="ico-github btn" href="https://github.com/jwall149" title="View on GitHub"></a></div>
+blog:
+  cc_license: https://www.apache.org/licenses/LICENSE-2.0
+  cc_license_image: http://apache.org/images/SupportApache-small.png
+  footer_content: Roads were made for journeys, not destination. <br/> Codes were made for fantasy, not frustration <br/>@<a href="https:/tonny.me">Tonny Pham</a>.
+
+disqus:
+  shortname: # e.g. yizeng
+  public_key: # e.g. ULZ0b9TFefCUJHKQd4JCKv2v3u27YoG7YG8zXPewkWrT333Z0Se9YnxLzoV6VM8W
+google_analytics: # e.g. 'UA-42456515-5'
+addthis_public_id: # AddThis sharing plugin. See http://www.addthis.com/. E.g. ra-53329e27694534j5
+
+paths:
+  home: /
+  blog: /blog/
+  categories: /blog/categories/
+  tags: /blog/tags/
