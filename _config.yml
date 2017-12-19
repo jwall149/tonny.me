@@ -57,10 +57,10 @@ blog:
   footer_content: Roads were made for journeys, not destination. <br/> Codes were made for fantasy, not frustration <br/>@<a href="https://tonny.me">Tonny Pham</a>.
 
 disqus:
-  shortname: # e.g. yizeng
-  public_key: # e.g. ULZ0b9TFefCUJHKQd4JCKv2v3u27YoG7YG8zXPewkWrT333Z0Se9YnxLzoV6VM8W
-google_analytics: # e.g. 'UA-42456515-5'
-addthis_public_id: # AddThis sharing plugin. See http://www.addthis.com/. E.g. ra-53329e27694534j5
+  shortname: tonnyme
+  public_key: B9RKyUh4HlWahjRjT6V6HnuICkCvf4Votl8AtwyK5BmApk3dtgjeoapwPkflvTYk
+google_analytics: 'UA-111436499-1'
+addthis_public_id: 'ra-5a38b861aceaa4b0'
 
 paths:
   home: /
