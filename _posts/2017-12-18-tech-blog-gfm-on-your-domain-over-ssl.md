@@ -2,11 +2,8 @@
 layout: post
 title: "Tech blog with gfm on your own domain over ssl"
 description: "Solution for a zero cost but scalable tech blog with Github flavor markdown on a custom domain over SSL"
-keywords: 'jekyll,github-pages,cloudflare,scalable,markdown,blog'
 categories: [blog]
-tags: [blog,jekyll,github,cloudflare]
-redirect_from:
-  - /2017/12/18/
+tags: [blog,jekyll,github,cloudflare,github-pages,scalable,markdown]
 ---
 
 So you finally come here to look for a solution to your blog? Well, at least how to build your blog the most comfortable way. So did I.
