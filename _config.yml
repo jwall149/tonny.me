@@ -54,7 +54,7 @@ home:
 blog:
   cc_license: https://www.apache.org/licenses/LICENSE-2.0
   cc_license_image:
-  footer_content: Roads were made for journeys, not destination. <br/> Codes were made for fantasy, not frustration <br/>@<a href="https:/tonny.me">Tonny Pham</a>.
+  footer_content: Roads were made for journeys, not destination. <br/> Codes were made for fantasy, not frustration <br/>@<a href="https://tonny.me">Tonny Pham</a>.
 
 disqus:
   shortname: # e.g. yizeng
