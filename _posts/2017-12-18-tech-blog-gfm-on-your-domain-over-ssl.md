@@ -9,9 +9,9 @@ redirect_from:
   - /2017/12/18/
 ---
 
-So you finally come here to look for a solution to your blog? Well, at least how to build your blog the easiest way. So did I.
+So you finally come here to look for a solution to your blog? Well, at least how to build your blog the most comfortable way. So did I.
 
-A month ago, I figured out that just some edit of my everyday documents that I wrote for every project I join in, can make a very good blog post. Sometimes I spend a day to look for a solution to a problem and if I publish it, the solution may save thousands of hours of people yearning for an answer on the internet.
+A month ago, I figured out that just some edit of my everyday documents that I wrote for every project I join in, can make an excellent blog post. Sometimes I spend a day to look for a solution to a problem, and if I publish it, the solution may save thousands of hours of people yearning for an answer on the internet.
 
 What were the requirements for the blog solution I want to accomplish? It must be  `GitHub-markdown-format`, and `Scalable`, and `secure` and `free`.
 
