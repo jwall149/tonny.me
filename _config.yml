@@ -25,8 +25,8 @@ sass:
 # url: http://tonny.me
 # baseurl: /
 title: Brainy Tech Blog
-description: "A thoughtfully written blog from smartass for smartass. Covering technical issues, security issues, tech stacks, best practices and grand discussions over the scalable real-life problems."
-keywords: 'technical blog,security,best practices,code convention,tech stacks'
+description: "A thoughtfully written blog on technical, security, scalability from a smartass to smartass."
+keywords: 'technical blog,security,scalability,tech stack'
 author:
   name: Tonny Pham
   job_title: Senior Engineer
@@ -57,10 +57,11 @@ blog:
   footer_content: Roads were made for journeys, not destination. <br/> Codes were made for fantasy, not frustration <br/>@<a href="https://tonny.me">Tonny Pham</a>.
 
 disqus:
-  shortname: # e.g. yizeng
-  public_key: # e.g. ULZ0b9TFefCUJHKQd4JCKv2v3u27YoG7YG8zXPewkWrT333Z0Se9YnxLzoV6VM8W
-google_analytics: # e.g. 'UA-42456515-5'
-addthis_public_id: # AddThis sharing plugin. See http://www.addthis.com/. E.g. ra-53329e27694534j5
+  shortname: tonnyme
+  site_url: https://tonny.me
+
+google_analytics: 'UA-111436499-1'
+addthis_public_id: 'ra-5a38b861aceaa4b0'
 
 paths:
   home: /
