@@ -25,8 +25,8 @@ sass:
 # url: http://tonny.me
 # baseurl: /
 title: Brainy Tech Blog
-description: "A thoughtfully written blog from smartass for smartass. Covering technical issues, security issues, tech stacks, best practices and grand discussions over the scalable real-life problems."
-keywords: 'technical blog,security,best practices,code convention,tech stacks'
+description: "A thoughtfully written blog on technical, security, scalability from a smartass to smartass."
+keywords: 'technical blog,security,scalability,tech stack'
 author:
   name: Tonny Pham
   job_title: Senior Engineer
@@ -58,7 +58,8 @@ blog:
 
 disqus:
   shortname: tonnyme
-  public_key: B9RKyUh4HlWahjRjT6V6HnuICkCvf4Votl8AtwyK5BmApk3dtgjeoapwPkflvTYk
+  site_url: https://tonny.me
+
 google_analytics: 'UA-111436499-1'
 addthis_public_id: 'ra-5a38b861aceaa4b0'
 

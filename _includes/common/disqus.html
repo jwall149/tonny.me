@@ -1,36 +1,26 @@
 <script>
-    $(document).ready(function () {
-        var disqusPublicKey = "{{ site.disqus.public_key }}";
-        var disqusShortname = "{{ site.disqus.shortname }}";
-        var threadUrl = 'link:' + $('.comments .show-hidden').attr('data-disqus-url');
+var disqus_config = function () {
+    this.page.url = "{{ site.disqus.site_url }}{{ page.url }}";
+    this.page.identifier = "{{ page.id }}";
+};
 
-        $.ajax({
-            type: 'GET',
-            url: '//disqus.com/api/3.0/threads/set.jsonp',
-            data: {
-                api_key: disqusPublicKey,
-                forum: disqusShortname,
-                thread: threadUrl
-            },
-            cache: false,
-            dataType: 'jsonp',
-            success: function (result) {
-                if (result.response.length === 1) {
-                    btnText = '{{ site.data.i18n[site.lang].show_comments }} (' + result.response[0].posts + ')';
-                    $('.comments .show-hidden').html(btnText);
-                }
-            }
-        });
+var loadDisqus = function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://{{ site.disqus.shortname }}.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+};
 
-        $('.comments .show-hidden').on('click', function () {
-            $.ajaxSetup({cache: true});
-            $.getScript('//' + disqusShortname + '.disqus.com/embed.js');
-            $.ajaxSetup({cache: false});
-            $(this).remove();
-        });
-
-        if (/\#comments/.test(location.hash)) {
-            $('.comments .show-hidden').trigger('click');
-        }
+$(document).ready(function () {
+    $('.comments .show-hidden').on('click', function () {
+        loadDisqus()
+        $(this).remove();
     });
+
+    if (/\#comments/.test(location.hash)) {
+        $('.comments .show-hidden').trigger('click');
+    }
+});
 </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
