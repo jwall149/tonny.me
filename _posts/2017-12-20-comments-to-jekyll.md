@@ -37,6 +37,7 @@ Remember the short name in Step 1? Replace `tonnyme` with yours. Also, replace `
 
 Replace file `_includes/common/disqus.html` completely with the following content:
 {% highlight javascript linenos=table %}
+{% raw %}
 <script>
 var disqus_config = function () {
     this.page.url = "{{ site.disqus.site_url }}{{ page.url }}";
@@ -62,6 +63,7 @@ $(document).ready(function () {
 });
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endraw %}
 {% endhighlight %}
 
 [^1]: _includes/common/disqus.html
