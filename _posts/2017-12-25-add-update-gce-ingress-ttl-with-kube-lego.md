@@ -8,7 +8,7 @@ tags: [kube-lego,ssl,kubectl,ingress,gce]
 
 ## Forewords and mission
 
-We are using [https://github.com/jetstack/kube-lego](Kube-lego) to register and update certification automatically from Let's Encrypt. While setting up the server, there some problems and pitfalls that I faced, I'm going to list here so you can avoid.
+We are using [Kube-lego](https://github.com/jetstack/kube-lego) to register and update certification automatically from Let's Encrypt. While setting up the server, there some problems and pitfalls that I faced, I'm going to list here so you can avoid.
 
 Before talking about the goal, let me share some specs of our system. We have a website for a lot of customers and need to set up an https subdomain on our primary domain for each of them for each of them. Each content is different for each customer, but we handle all those logic inside a single application.
 

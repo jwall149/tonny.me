@@ -19,7 +19,7 @@ Jekyll provides `GitHub-markdown`, of course, the must, because that's the forma
 Step:
 
 ### Fork a Jekyll website
-Go to [http://jekyllthemes.org/](Jekyll Themes) and choose the theme you like, then navigate to its Github page. After that, you can fork the repository to yours.
+Go to [Jekyll Themes](http://jekyllthemes.org/) and choose the theme you like, then navigate to its Github page. After that, you can fork the repository to yours.
 ### Change content and check local build
 You're required to have `Ruby version 2.2 or after`, to do this task. Run
 ```
