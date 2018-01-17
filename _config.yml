@@ -56,9 +56,13 @@ blog:
   cc_license_image:
   footer_content: Roads were made for journeys, not destination. <br/> Codes were made for fantasy, not frustration <br/>@<a href="https://tonny.me">Tonny Pham</a> | <a href="/about/privacy">Privacy Policy</a>.
 
-disqus:
-  shortname: tonnyme
+comment:
   site_url: https://tonny.me
+  disqus:
+    shortname: tonnyme
+  facebook:
+    app_id: '1837817809776683'
+
 
 google_analytics: 'UA-111436499-1'
 addthis_public_id: 'ra-5a38b861aceaa4b0'
