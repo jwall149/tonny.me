@@ -16,13 +16,16 @@ Tonny Pham
 
 Email: its(at)thisdomain
 
-Full-stack Engineer. 16 years of experience in Software Development. Extensive engineering expertise on the large scale systems includes e-commerce, HTML5 games, or microservices. In-depth understanding of how to apply Agile in development. Always hunger for challenge and problem-solving. Professional at self-motivation. Capable of working in a multi-timezone team.
+Full-stack Engineer. Start coding for money since 16. Extensive engineering expertise on the large scale systems includes e-commerce, HTML5 games, and microservices system.
+
+In-depth understanding of how to apply Agile in development. Always hunger for challenge and problem-solving. Professional at self-motivation. Capable of working in a multi-timezone team.
 
 
 ## COMPANIES
 
 ### VELTRA
 Tokyo, Japan, 2007/06 ~ Now
+
 Senior Engineer for Extended Veltra System.
 In charge of building a system and also Engineer Culture. Focus on achieving a high scalability microservice system
 
@@ -38,6 +41,7 @@ In charge of building a system and also Engineer Culture. Focus on achieving a h
 
 ### Livio (Transfer due to changing equity)
 Tokyo, Japan, 2017/01 - 2017/05
+
 Develop a system for influencers, design a new way of internet marketing.
 Lead Engineer, Project Leader
 
@@ -46,6 +50,7 @@ Lead Engineer, Project Leader
 
 ### Playnext JP Inc.
 Tokyo, Japan — 2013/7 - 2016/12
+
 Develop HTML5 Game: Assassin's Creed: Memories as Lead Engineer.
 
 - Act as Agile consultant for all projects
@@ -56,13 +61,15 @@ Develop HTML5 Game: Assassin's Creed: Memories as Lead Engineer.
 
 ### DENA Corp.
 Tokyo, Japan — 2013/01 - 2013/6
-iOS Application Engineer,
+
+iOS Application Engineer
 
 - Work on a new streaming music application as iOS developer.
 
 
-### , Rakuten Inc.
+### Rakuten Inc.
 Tokyo, Japan — 2011/04-2013/01
+
 Application Engineer
 Working on various e-commerce platform with Java, Ruby On Rails on multiples countries.
 
@@ -74,6 +81,7 @@ Working on various e-commerce platform with Java, Ruby On Rails on multiples cou
 
 ### Rakuten Institute of Technology, Rakuten Inc.
 Tokyo, Japan, 2009/09 - 2011/03
+
 Research Assistant
 Focus on data-mining, especially data classification, and polarization. Also worked on building recommendation system of Rakuten products and data visualization.
 
@@ -85,6 +93,7 @@ Focus on data-mining, especially data classification, and polarization. Also wor
 
 ### Part-time Application Engineer, Renacentia Corp.
 Kanagawa, Japan — 2009-2010
+
 Mainly focus on building & delivering web services with MySQL, PHP5, Symfony
 
 - Built Backend system for Axxiss
