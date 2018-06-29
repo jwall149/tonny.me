@@ -1,0 +1,122 @@
+[
+  
+    {
+      "title"      : "Microservice design principles",
+      "url"        : "/blog/2018/06/14/microservice-principals/",
+      "date"       : "2018-06-14 00:00:00 +0000",
+      "shortdate"  : "June 14, 2018"
+    } ,
+  
+    {
+      "title"      : "VPN speed benchmark - TunnelBear vs. ExpressVPN.",
+      "url"        : "/blog/2018/01/23/tunnel-bear-vs-expressvpn-speed-benchmark/",
+      "date"       : "2018-01-23 00:00:00 +0000",
+      "shortdate"  : "January 23, 2018"
+    } ,
+  
+    {
+      "title"      : "My future prediction in 2009",
+      "url"        : "/blog/2018/01/19/my-2009-prediction-for-future/",
+      "date"       : "2018-01-19 00:00:00 +0000",
+      "shortdate"  : "January 19, 2018"
+    } ,
+  
+    {
+      "title"      : "Git aware prompt",
+      "url"        : "/blog/2018/01/18/git-aware-prompt/",
+      "date"       : "2018-01-18 00:00:00 +0000",
+      "shortdate"  : "January 18, 2018"
+    } ,
+  
+    {
+      "title"      : "Switch from Disqus to Facebook comment.",
+      "url"        : "/blog/2018/01/17/switch-from-disqus-to-facebook-comment/",
+      "date"       : "2018-01-17 00:00:00 +0000",
+      "shortdate"  : "January 17, 2018"
+    } ,
+  
+    {
+      "title"      : "Visualization of the model, MNIST - Day 4.",
+      "url"        : "/blog/2018/01/15/MNIST-day-4-visualize-model/",
+      "date"       : "2018-01-15 00:00:00 +0000",
+      "shortdate"  : "January 15, 2018"
+    } ,
+  
+    {
+      "title"      : "The annoying MNIST - Day 3.",
+      "url"        : "/blog/2018/01/12/MNIST-day-3/",
+      "date"       : "2018-01-12 00:00:00 +0000",
+      "shortdate"  : "January 12, 2018"
+    } ,
+  
+    {
+      "title"      : "Stress test my Jekyll blog.",
+      "url"        : "/blog/2018/01/10/stress-test-my-own-blog/",
+      "date"       : "2018-01-10 00:00:00 +0000",
+      "shortdate"  : "January 10, 2018"
+    } ,
+  
+    {
+      "title"      : "Tonny learns the MNIST - Day 2",
+      "url"        : "/blog/2018/01/05/mnist-day-2/",
+      "date"       : "2018-01-05 00:00:00 +0000",
+      "shortdate"  : "January 05, 2018"
+    } ,
+  
+    {
+      "title"      : "Intel Chip Flaw, the Meltdown",
+      "url"        : "/blog/2018/01/04/understanding-intel-chip-flaw-the-meltdown/",
+      "date"       : "2018-01-04 00:00:00 +0000",
+      "shortdate"  : "January 04, 2018"
+    } ,
+  
+    {
+      "title"      : "Protect yourself from Intel CPU hack",
+      "url"        : "/blog/2018/01/03/protect-yourself-from-potential-intel-chip-hack/",
+      "date"       : "2018-01-03 00:00:00 +0000",
+      "shortdate"  : "January 03, 2018"
+    } ,
+  
+    {
+      "title"      : "Tonny learns the MNIST",
+      "url"        : "/blog/2017/12/27/engineer-and-deep-learning-day-1-setup/",
+      "date"       : "2017-12-27 00:00:00 +0000",
+      "shortdate"  : "December 27, 2017"
+    } ,
+  
+    {
+      "title"      : "Control SSL in gcloud with kube-lego",
+      "url"        : "/blog/2017/12/25/add-update-gce-ingress-ttl-with-kube-lego/",
+      "date"       : "2017-12-25 00:00:00 +0000",
+      "shortdate"  : "December 25, 2017"
+    } ,
+  
+    {
+      "title"      : "Test with goroutine and redis",
+      "url"        : "/blog/2017/12/21/goroutine-test/",
+      "date"       : "2017-12-21 00:00:00 +0000",
+      "shortdate"  : "December 21, 2017"
+    } ,
+  
+    {
+      "title"      : "How to add comment to static Jekyll webpage",
+      "url"        : "/blog/2017/12/20/comments-to-jekyll/",
+      "date"       : "2017-12-20 00:00:00 +0000",
+      "shortdate"  : "December 20, 2017"
+    } ,
+  
+    {
+      "title"      : "Mass-add favicons to Jekyll on Github pages.",
+      "url"        : "/blog/2017/12/19/mass-add-favicons-to-jekyll-on-github-pages/",
+      "date"       : "2017-12-19 00:00:00 +0000",
+      "shortdate"  : "December 19, 2017"
+    } ,
+  
+    {
+      "title"      : "Tech blog with gfm on your own domain over ssl",
+      "url"        : "/blog/2017/12/18/tech-blog-gfm-on-your-domain-over-ssl/",
+      "date"       : "2017-12-18 00:00:00 +0000",
+      "shortdate"  : "December 18, 2017"
+    } 
+  
+]

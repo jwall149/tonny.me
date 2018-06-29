@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Stress test my Jekyll blog. | Brainy Tech Blog</title>
+<meta name="generator" content="Jekyll v3.5.2" />
+<meta property="og:title" content="Stress test my Jekyll blog." />
+<meta name="author" content="Tonny Pham" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Stress test my own free Jekyll blog up to 100 virtual users." />
+<meta property="og:description" content="Stress test my own free Jekyll blog up to 100 virtual users." />
+<meta property="og:site_name" content="Brainy Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-01-10T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"Stress test my own free Jekyll blog up to 100 virtual users.","author":{"@type":"Person","name":"Tonny Pham"},"@type":"BlogPosting","url":"/blog/2018/01/10/stress-test-my-own-blog/","headline":"Stress test my Jekyll blog.","dateModified":"2018-01-10T00:00:00+00:00","datePublished":"2018-01-10T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/2018/01/10/stress-test-my-own-blog/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<meta name="keywords" content="blog,stresstest" />
+
+
+
+
+
+<link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Brainy Tech Blog" />
+
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/images/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/assets/images/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/assets/images/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/apple-touch-icon-152x152.png" />
+<link rel="icon" type="image/png" href="/assets/images/favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="/assets/images/favicon-128.png" sizes="128x128" />
+<meta name="application-name" content="&nbsp;"/>
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="mstile-144x144.png" />
+<meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+<meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+<meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+<meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+
+    <link href='/assets/stylesheets/blog.css' rel="stylesheet" type="text/css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script>window.Modernizr || document.write('<script src="/assets/javascripts/modernizr-2.8.3.min.js"><\/script>')</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="/assets/javascripts/jquery-3.2.1.min.js"><\/script>')
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<script>
+    window.Pace || document.write('<script src="/assets/javascripts/pace.min.js"><\/script>')
+</script>
+
+
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+<script async src="/assets/javascripts/autotrack.js"></script>
+<script>
+
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-111436499-1', 'auto');
+
+ga('require', 'cleanUrlTracker', {
+  trailingSlash: 'remove'
+});
+ga('require', 'maxScrollTracker');
+ga('require', 'mediaQueryTracker', {
+  definitions: [
+    {
+      name: 'Breakpoint',
+      dimensionIndex: 1,
+      items: [
+        {name: 'sm', media: 'all'},
+        {name: 'md', media: '(min-width: 768px)'},
+        {name: 'lg', media: '(min-width: 1200px)'}
+      ]
+    },
+    {
+      name: 'Pixel Density',
+      dimensionIndex: 2,
+      items: [
+        {name: '1x',   media: 'all'},
+        {name: '1.5x', media: '(min-resolution: 144dpi)'},
+        {name: '2x',   media: '(min-resolution: 192dpi)'}
+      ]
+    },
+    {
+      name: 'Orientation',
+      dimensionIndex: 3,
+      items: [
+        {name: 'landscape', media: '(orientation: landscape)'},
+        {name: 'portrait',  media: '(orientation: portrait)'}
+      ]
+    }
+  ]
+});
+ga('require', 'outboundLinkTracker', {
+  events: ['click', 'auxclick', 'contextmenu']
+});
+ga('require', 'pageVisibilityTracker', {
+  sendInitialPageview: true,
+});
+
+ga('send', 'pageview');
+
+function sendGaEvent(category, action, element, value) {
+    var title = element.getAttribute('title');
+    var textConent = element.textContent ? element.textContent.trim() : undefined;
+    var label = (title && title.length !== 0) ? title : textConent;
+    ga('send', {
+        hitType: 'event',
+        eventCategory: category,
+        eventAction: action.trim(),
+        eventLabel: label,
+        eventValue: value
+    });
+}
+</script>
+
+</head>
+<body>
+    <!--[if IE]>
+    <p class="site-notice">You are using an outdated browser. Please <a href="https://browsehappy.com/" target="_blank">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true" target="_blank">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+<noscript>
+    <p class="site-notice">This site requires JavaScript. Here are the instructions <a href="https://www.enable-javascript.com/" target="_blank">how to enable JavaScript in your web browser</a>.</p>
+</noscript>
+
+    <div class="nav-wrapper overlay-wrapper">
+    <div class="nav-form overlay-form">
+        <span class="overlay-header menu">Menu</span>
+        <a class="btn-close">Close</a>
+        <div class="results">
+            <ul>
+                <li><a href="/blog/categories/">Categories</a></li>
+                <li><a href="/blog/tags/">Tags</a></li>
+                <li><a href="/">About</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="search-wrapper overlay-wrapper">
+    <div class="search-form overlay-form">
+        <input type="text" class="overlay-header search-field" placeholder="Search...">
+        <a class="btn-close">Close</a>
+        <ul class="results"></ul>
+    </div>
+</div>
+
+
+    <div id="page" class="hentry">
+        <header class="the-header">
+    <div class="unit-head">
+        <div class="unit-inner unit-head-inner">
+            <nav class="nav-global">
+                <ul>
+                    <li class="logo nav-link">
+                        <button class="btn-menu" title="Menu"></button>
+                        <a href="/blog/">Brainy Tech Blog</a>
+                        <!--[if !IE]> -->
+                        <button class="btn-search" title="Search"></button>
+                        <!-- <![endif]-->
+                    </li>
+                    <li class="nav-link"><a title="Categories" href="/blog/categories/">Categories</a></li>
+                    <li class="nav-link"><a title="Tags" href="/blog/tags/">Tags</a></li>
+                    <!--[if !IE]> -->
+                    <li class="nav-link"><a title="Search" class="btn-search" href="#">Search</a></li>
+                    <!-- <![endif]-->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+
+        <div class="body animated fadeInDown" role="main">
+            <div class="unit-body">
+                <div class="unit-inner unit-body-inner">
+                    <div class="entry-content">
+                        <article class="unit-article layout-post">
+    <div class="unit-inner unit-article-inner">
+        <div itemscope itemtype="http://schema.org/Article" class="content">
+            <header>
+                <div class="unit-head">
+                    <div class="unit-inner unit-head-inner">
+                        <h1 class="entry-title" itemprop="name">Stress test my Jekyll blog.</h1>
+                    </div>
+                </div>
+            </header>
+            <div class="bd article-content">
+                <div class="entry-content">
+                    <div class="meta">
+                        <p class="date-publish">
+                            Published:
+                            <time itemprop="datePublished" class="date-pub updated"
+                                title="2018-01-10T00:00:00+00:00" datetime="2018-01-10T00:00:00+00:00">January 10, 2018 </time>
+                            by
+                            <a class="author" href="/" rel="author" title="Show Author">
+                                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span itemprop="name">Tonny Pham</span>
+                                </span>
+                            </a>
+                            
+                            
+                        </p>
+                        <ul class="list-category list-linear">
+                            <li class="list-head">Categories: </li>
+                             
+     
+        <li>
+            <a href="/blog/categories/#blog" title="blog">
+            blog <span>7</span></a>
+        </li>
+    
+
+
+
+                        </ul>
+                        <ul class="list-tag list-linear">
+                            <li class="list-head">Tags: </li>
+                             
+    
+        
+        <li>
+            <a href="/blog/tags/#blog" title="blog">blog <span>3</span></a>
+        </li>
+    
+        
+        <li>
+            <a href="/blog/tags/#stresstest" title="stresstest">stresstest <span>1</span></a>
+        </li>
+    
+
+
+
+
+                        </ul>
+                    </div>
+                    <div itemprop="articleBody">
+                        <h2 id="heading-why-stress-test-my-blog">Why stress test my blog?</h2>
+
+<p>If you follow the previous articles on <a href="https://tonny.me/blog/categories/#blog">blogging</a>, I claimed that we create a scalable blog on HTTPS for free, this article provides you more with details and share the strategy of the stress test and the result.</p>
+
+<h2 id="heading-stress-test-strategy">Stress test strategy</h2>
+
+<h3 id="heading-the-cache">The cache</h3>
+
+<p>My blog serves through a CDN layer called CloudFlare, and to make the result of the stress test useful; I disabled the cache on <code class="highlighter-rouge">/blog/*</code>. Otherwise, I'm going to do a meaningless stress test on CloudFlare. With this setting, only assets include static content like javascript, CSS, images are cached to improve speed, the content request will hit the AWS instance provided by Github, which I assume is the weakest one.</p>
+
+<h3 id="heading-scenario">Scenario</h3>
+
+<p>I made myself an assumption that every user will spend the time to read three blog articles. Therefore, every virtual user will request three random posts, and to mimic the standard browser during the session, memory cache is available.</p>
+
+<p>Virtual users will come from 5 different regions, following the following table</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Weighting</th>
+      <th>Region</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>20%</td>
+      <td>US West</td>
+    </tr>
+    <tr>
+      <td>20%</td>
+      <td>US East</td>
+    </tr>
+    <tr>
+      <td>20%</td>
+      <td>Ireland</td>
+    </tr>
+    <tr>
+      <td>20%</td>
+      <td>Singapore</td>
+    </tr>
+    <tr>
+      <td>20%</td>
+      <td>Sao Paulo</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The limit is set to 100 virtual users.</p>
+
+<h2 id="heading-the-test-result">The test result</h2>
+
+<h3 id="heading-summary">Summary</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Maximum Running Vusers</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>Total Transfer</td>
+      <td>98.31 MB</td>
+    </tr>
+    <tr>
+      <td>Throughout</td>
+      <td>Average: 165.58 KB/s Peak:1.09 MB/s</td>
+    </tr>
+    <tr>
+      <td>Total Requests</td>
+      <td>39,323</td>
+    </tr>
+    <tr>
+      <td>Requests per Second</td>
+      <td>Average: 64.68/s Peak:182.00/s</td>
+    </tr>
+    <tr>
+      <td>Average Response Time</td>
+      <td>Average: 0.176s HTML: 0.233s</td>
+    </tr>
+    <tr>
+      <td>Total Passed scenarios</td>
+      <td>3,746</td>
+    </tr>
+    <tr>
+      <td>Total Failed scenarios</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Some notable measurements</p>
+
+<ul>
+  <li>Almost no error, only ten scenarios failed because the testing instance in AWS ran out of memory.</li>
+  <li>Super low response time</li>
+  <li>Quite good RPS</li>
+</ul>
+
+<h3 id="heading-region-based-summary-for-total-webpage">Region based summary for total webpage</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Region</th>
+      <th>Minimum</th>
+      <th>Average</th>
+      <th>Median</th>
+      <th>Std.Deviation</th>
+      <th>90 Percent</th>
+      <th>Pass</th>
+      <th>Fail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Asia Pacific (Singapore)</td>
+      <td>1.279s</td>
+      <td>1.467s</td>
+      <td>1.388s</td>
+      <td>0.244s</td>
+      <td>1.716s</td>
+      <td>810</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>EU (Ireland)</td>
+      <td>0.967s</td>
+      <td>1.119s</td>
+      <td>1.085s</td>
+      <td>0.178s</td>
+      <td>1.280s</td>
+      <td>826</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>South America (Sao Paulo)</td>
+      <td>1.492s</td>
+      <td>1.595s</td>
+      <td>1.495s</td>
+      <td>0.206s</td>
+      <td>1.562s</td>
+      <td>623</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>US East (N. Virginia)</td>
+      <td>0.794s</td>
+      <td>0.953s</td>
+      <td>0.939s</td>
+      <td>0.115s</td>
+      <td>1.047s</td>
+      <td>658</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>US West (Northern California)</td>
+      <td>0.950s</td>
+      <td>1.164s</td>
+      <td>1.156s</td>
+      <td>0.084s</td>
+      <td>1.272s</td>
+      <td>829</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>90% total webpage load time is less than 2 seconds, quite a good performance</p>
+
+<h2 id="heading-final-thought">Final thought</h2>
+
+<p>Without CDN for <code class="highlighter-rouge">/blog/*</code>, and without any fee, the ability to deliver up to 182 Requests per second for less than 2 seconds for all region is ridiculous good. Turning up the cache for <code class="highlighter-rouge">/blog/*</code> will serve requests than that. It's more than enough for a personal blog.</p>
+
+                    </div>
+                </div>
+            </div>
+            <footer class="unit-foot">
+                <div class="unit-inner unit-foot-inner">
+                    <div class="post-buttons">
+                        <a class="internal gotop" href="#page" title="Back to Top">Back to Top</a>
+                        
+                            <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+    <small class="label">Share Post:</small>
+    <a class="btn-share-post addthis_button_email"></a>
+    <a class="btn-share-post addthis_button_facebook"></a>
+    <a class="btn-share-post addthis_button_google_plusone_share"></a>
+    <a class="btn-share-post addthis_button_reddit"></a>
+    <a class="btn-share-post addthis_button_twitter"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a38b861aceaa4b0"></script>
+                        
+                    </div>
+                    <nav class="pagination">
+                        
+                            <a class="internal" rel="prev" href="/blog/2018/01/05/mnist-day-2/" title=" 'Tonny learns the MNIST - Day 2'"> ← Tonny learns the MNIST - Day 2</a>
+                        
+                        
+                            <a class="internal" rel="next" href="/blog/2018/01/12/MNIST-day-3/" title="Next Post 'The annoying MNIST - Day 3.'">The annoying MNIST - Day 3. → </a>
+                        
+                    </nav>
+                </div>
+            </footer>
+            <div class="misc-content">
+                
+                    <div class="lds-css ng-scope">
+  <div style="width:100%;height:100%;margin:0 auto;" class="lds-facebook">
+    <div></div> <div></div> <div></div> </div>
+<style type="text/css">@keyframes lds-facebook_1 {
+  0% {top: 36px; height: 128px; }
+  50% {top: 60px; height: 80px; }
+  100% {top: 60px; height: 80px; }
+}
+@-webkit-keyframes lds-facebook_1 {
+  0% {top: 36px; height: 128px; }
+  50% {top: 60px; height: 80px; }
+  100% {top: 60px; height: 80px; }
+}
+@keyframes lds-facebook_2 {
+  0% {top: 41.99999999999999px; height: 116.00000000000001px; }
+  50% {top: 60px; height: 80px; }
+  100% {top: 60px; height: 80px; }
+}
+@-webkit-keyframes lds-facebook_2 {
+  0% {top: 41.99999999999999px; height: 116.00000000000001px; }
+  50% {top: 60px; height: 80px; }
+  100% {top: 60px; height: 80px; }
+}
+@keyframes lds-facebook_3 {
+  0% {top: 48px; height: 104px; }
+  50% {top: 60px; height: 80px; }
+  100% {top: 60px; height: 80px; }
+}
+@-webkit-keyframes lds-facebook_3 {
+  0% {top: 48px; height: 104px; }
+  50% {top: 60px; height: 80px; }
+  100% {top: 60px; height: 80px; }
+}
+.lds-facebook {position: relative; }
+.lds-facebook div {position: absolute; width: 30px; }
+.lds-facebook div:nth-child(1) {
+  left: 35px;
+  background: #8cd0e5;
+  -webkit-animation: lds-facebook_1 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  animation: lds-facebook_1 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  -webkit-animation-delay: -0.2s;
+  animation-delay: -0.2s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 85px;
+  background: #376888;
+  -webkit-animation: lds-facebook_2 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  animation: lds-facebook_2 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  -webkit-animation-delay: -0.1s;
+  animation-delay: -0.1s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 135px;
+  background: #826b88;
+  -webkit-animation: lds-facebook_3 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  animation: lds-facebook_3 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook {
+  width: 200px !important;
+  height: 200px !important;
+  -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+}
+</style></div>
+                    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=1837817809776683';
+  js.onload = function() {
+	FB.Event.subscribe("xfbml.render", function(response) {
+		loading = document.getElementsByClassName('lds-css')[0]
+		loading.style.display = 'none';
+	});
+  }
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+                    <div class="comments">
+                        <div class="fb-comments" data-href="https://tonny.me/blog/2018/01/10/stress-test-my-own-blog/" data-numposts="5" data-width="100%"></div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</article>
+<!-- <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us11.list-manage.com","uuid":"017ce8aff4e61cff908bb9fc2","lid":"ed5451cf9a"}) })</script> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="the-footer">
+    <div class="unit-foot">
+        <div class="unit-inner unit-foot-inner">
+            <div class="misc vcard">
+                <div class="about">
+                    <h4><a href="/">About</a></h4>
+                    
+                        <p>Roads were made for journeys, not destination. <br/> Codes were made for fantasy, not frustration <br/>@<a href="https://tonny.me">Tonny Pham</a> | <a href="/about/privacy">Privacy Policy</a>.</p>
+                    
+                    <p><small>Great thanks to Yi Feng for his <a href="https://github.com/yizeng/jekyll-theme-simple-texture" target="_blank">theme</a>, powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>.</small></p>
+                </div>
+                <div class="social-links">
+                    
+                        <a class="ico-gmail" href="mailto:its(at)thisdomain" rel="me" target="_blank" title="email"></a>
+                    
+                    <a class="ico-rss" href="/feed.xml" rel="me" target="_blank" title="feed"></a>
+                    
+                        
+                    
+                        
+                            <a class="ico-github" href="https://github.com/jwall149" rel="me" target="_blank" title="github"></a>
+                        
+                    
+                        
+                    
+                        
+                            <a class="ico-linkedin" href="https://www.linkedin.com/in/tonny-pham/" rel="me" target="_blank" title="linkedin"></a>
+                        
+                    
+                        
+                            <a class="ico-stackoverflow" href="https://stackoverflow.com/users/1041286/jwall" rel="me" target="_blank" title="stackoverflow"></a>
+                        
+                    
+                        
+                            <a class="ico-twitter" href="https://twitter.com/tech_tonny" rel="me" target="_blank" title="twitter"></a>
+                        
+                    
+                        
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="internal back-to-top">Back to Top</a>
+<!--  Build Env <div></div>
+ -->
+</footer>
+
+    </div>
+
+    <script>
+$(document).ready(function () {
+    var offset = 50,
+        duration = 500,
+        width = 960;
+    $(window).scroll(function () {
+        if ($(window).width() > width) {
+            if ($(this).scrollTop() > offset) {
+                $('footer').css('top', '20px');
+                $('footer .back-to-top').fadeIn(duration);
+            } else {
+                $('footer').css('top', 'auto');
+                $('footer .back-to-top').fadeOut(duration);
+            }
+        }
+    });
+    $(window).resize(function () {
+        if ($(window).width() < width) {
+            $('footer').css('top', 'auto');
+            $('footer .back-to-top').fadeOut(duration);
+        }
+        if ($(window).width() >= width && $(this).scrollTop() > offset) {
+            $('footer').css('top', '20px');
+            $('footer .back-to-top').fadeIn(duration);
+        }
+    });
+
+    $('footer .back-to-top, .gotop').on('click', function (event) {
+        event.preventDefault();
+        $('html, body').animate({
+            scrollTop: 0
+        }, duration);
+        return false;
+    });
+
+    $('.show-hidden').on('click', function () {
+        $(this).parent().next().toggleClass("hidden");
+        $(this).toggleClass("hidden");
+    });
+});
+</script>
+
+<!-- Google Analytics Event tracking -->
+
+<script>
+$(document).on('click', 'footer .back-to-top, .gotop', function (event) {
+    sendGaEvent('Blog', 'Back to Top', event.currentTarget);
+});
+$(document).on('click', '.show-hidden', function (event) {
+    sendGaEvent('Post', 'Show Hidden', event.currentTarget);
+});
+$(document).on('click', 'a.internal', function(event) {
+    sendGaEvent('Blog', 'Navigate', event.currentTarget);
+});
+$('.the-header').on('click', '.nav-link a, [class$=wrapper] .results a, .nav-link button', function(event) {
+    sendGaEvent('Blog', 'Navigate', event.currentTarget);
+});
+$('.the-header').on('click', '.nav-link button', function(event) {
+    sendGaEvent('Blog', 'Navigate', event.currentTarget);
+});
+$('.the-footer').on('click', '.about h4 a', function(event) {
+    sendGaEvent('Blog', 'Go to About', event.currentTarget);
+});
+$('.the-footer').on('click', '.social-links a', function(event) {
+    sendGaEvent('Blog', 'Click Social Link', event.currentTarget);
+});
+$('.unit-article').on('click', '.tag_box.categories a', function(event) {
+    sendGaEvent('Blog', 'Click Category', event.currentTarget);
+});
+$('.unit-article').on('click', '.tag_box.tags a', function(event) {
+    sendGaEvent('Blog', 'Click Tag', event.currentTarget);
+});
+$('.unit-article').on('click', '.comments .show-hidden', function(event) {
+    sendGaEvent('Post', 'Show Comments', event.currentTarget);
+});
+$('.unit-article').on('click', '.meta .author', function(event) {
+    sendGaEvent('Post', 'Show Author', event.currentTarget);
+});
+$('.unit-article').on('click', '.meta .license-icon', function(event) {
+    sendGaEvent('Post', 'Show License', event.currentTarget);
+});
+$('.unit-article').on('click', '.meta .list-tag a', function(event) {
+    sendGaEvent('Post', 'Click Tag', event.currentTarget);
+});
+$('.unit-article').on('click', '.meta .list-category', function(event) {
+    sendGaEvent('Post', 'Click Category', event.currentTarget);
+});
+$('.unit-foot').delegate('.addthis_toolbox .btn-share-post', 'click', function(event) {
+    sendGaEvent('Post', 'Share Post', event.currentTarget);
+});
+$('.search-wrapper').on('click', '.results a', function(event) {
+    sendGaEvent('Search', 'Click Search Result', event.currentTarget);
+});
+$('.search-wrapper').on('click', '.btn-close', function(event) {
+    sendGaEvent('Search', 'Close Search', event.currentTarget);
+});
+</script>
+
+
+<!-- Show menu overlay + Jekyll Simple Search option -->
+<script src="/assets/javascripts/jekyll-search.jquery.js"></script>
+<script>
+$(document).ready(function () {
+    $('.search-field').simpleJekyllSearch({
+      jsonFile: '/search.json',
+      template: '<li><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></li>',
+      searchResults: '.search-wrapper .results',
+      searchResultsTitle: '<h4>Search results</h4>',
+      noResults: '<p>Oh shucks<br/><small>Nothing found :(</small></p>'
+    });
+});
+
+(function ($, window, undefined) {
+    var closeOverlay = function () {
+        $('.nav-wrapper, .search-wrapper').removeAttr('style');
+        $(".nav-form, .search-form").removeClass('active');
+        $("body").removeClass('nav-overlay search-overlay');
+    };
+
+    $('.nav-global .btn-search').on('click', function () {
+        $('.search-wrapper').css({display: "block"});
+        $(".search-form").addClass('active');
+        $(".search-form").find('input').focus();
+        $("body").addClass('search-overlay');
+    });
+
+    $('.nav-global .btn-menu').on('click', function () {
+        $('.nav-wrapper').css({display: "block"});
+        $(".nav-form").addClass('active');
+        $(".nav-form .search-field").prop('disabled', true);
+        $("body").addClass('nav-overlay');
+    });
+
+    $('.nav-wrapper .btn-close, .search-wrapper .btn-close').on('click', function () {
+        closeOverlay();
+    });
+
+    $(document).on('keyup', function (e) {
+        if (e.keyCode === 27) {
+            closeOverlay();
+        }
+    });
+})(jQuery, window);
+</script>
+
+<script src='//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-buttons.min.js'></script>
+<script src="/assets/javascripts/unveil/jquery.unveil.min.js"></script>
+
+<script>
+    window.jQuery.fancybox || document.write('<script src="/assets/javascripts/fancybox/jquery.fancybox.pack.js?v=2.1.4"><\/script>')
+    window.jQuery.fancybox.helpers.buttons || document.write('<script src="/assets/javascripts/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"><\/script>')
+</script>
+
+<script>
+    $("head").append('<link rel="stylesheet" href="/assets/javascripts/fancybox/jquery.fancybox.css?v=2.1.4" type="text/css" />');
+    $("head").append('<link rel="stylesheet" href="/assets/javascripts/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" />');
+    $(".post-image").fancybox({
+        prevEffect: 'none',
+        nextEffect: 'none',
+        closeBtn: true,
+        helpers: {
+            title: {
+                type: 'float'
+            }
+        }
+    });
+    $(document).ready(function () {
+        $(".post-image > img").unveil(450);
+    });
+</script>
+
+</body>
+
+</html>

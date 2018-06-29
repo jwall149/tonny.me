@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Visualization of the model, MNIST - Day 4. | Brainy Tech Blog</title>
+<meta name="generator" content="Jekyll v3.5.2" />
+<meta property="og:title" content="Visualization of the model, MNIST - Day 4." />
+<meta name="author" content="Tonny Pham" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Visualize the model of previous MNIST work." />
+<meta property="og:description" content="Visualize the model of previous MNIST work." />
+<meta property="og:site_name" content="Brainy Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-01-15T00:00:00+00:00" />
+<script type="application/ld+json">
+{"description":"Visualize the model of previous MNIST work.","author":{"@type":"Person","name":"Tonny Pham"},"@type":"BlogPosting","url":"/blog/2018/01/15/MNIST-day-4-visualize-model/","headline":"Visualization of the model, MNIST - Day 4.","dateModified":"2018-01-15T00:00:00+00:00","datePublished":"2018-01-15T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/2018/01/15/MNIST-day-4-visualize-model/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<meta name="keywords" content="mnist,keras,model,visualize,graphviz" />
+
+
+
+
+
+<link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Brainy Tech Blog" />
+
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/images/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/assets/images/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/assets/images/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/apple-touch-icon-152x152.png" />
+<link rel="icon" type="image/png" href="/assets/images/favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="/assets/images/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="/assets/images/favicon-128.png" sizes="128x128" />
+<meta name="application-name" content="&nbsp;"/>
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="mstile-144x144.png" />
+<meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+<meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+<meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+<meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+
+    <link href='/assets/stylesheets/blog.css' rel="stylesheet" type="text/css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script>window.Modernizr || document.write('<script src="/assets/javascripts/modernizr-2.8.3.min.js"><\/script>')</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="/assets/javascripts/jquery-3.2.1.min.js"><\/script>')
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<script>
+    window.Pace || document.write('<script src="/assets/javascripts/pace.min.js"><\/script>')
+</script>
+
+
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+<script async src="/assets/javascripts/autotrack.js"></script>
+<script>
+
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-111436499-1', 'auto');
+
+ga('require', 'cleanUrlTracker', {
+  trailingSlash: 'remove'
+});
+ga('require', 'maxScrollTracker');
+ga('require', 'mediaQueryTracker', {
+  definitions: [
+    {
+      name: 'Breakpoint',
+      dimensionIndex: 1,
+      items: [
+        {name: 'sm', media: 'all'},
+        {name: 'md', media: '(min-width: 768px)'},
+        {name: 'lg', media: '(min-width: 1200px)'}
+      ]
+    },
+    {
+      name: 'Pixel Density',
+      dimensionIndex: 2,
+      items: [
+        {name: '1x',   media: 'all'},
+        {name: '1.5x', media: '(min-resolution: 144dpi)'},
+        {name: '2x',   media: '(min-resolution: 192dpi)'}
+      ]
+    },
+    {
+      name: 'Orientation',
+      dimensionIndex: 3,
+      items: [
+        {name: 'landscape', media: '(orientation: landscape)'},
+        {name: 'portrait',  media: '(orientation: portrait)'}
+      ]
+    }
+  ]
+});
+ga('require', 'outboundLinkTracker', {
+  events: ['click', 'auxclick', 'contextmenu']
+});
+ga('require', 'pageVisibilityTracker', {
+  sendInitialPageview: true,
+});
+
+ga('send', 'pageview');
+
+function sendGaEvent(category, action, element, value) {
+    var title = element.getAttribute('title');
+    var textConent = element.textContent ? element.textContent.trim() : undefined;
+    var label = (title && title.length !== 0) ? title : textConent;
+    ga('send', {
+        hitType: 'event',
+        eventCategory: category,
+        eventAction: action.trim(),
+        eventLabel: label,
+        eventValue: value
+    });
+}
+</script>
+
+</head>
+<body>
+    <!--[if IE]>
+    <p class="site-notice">You are using an outdated browser. Please <a href="https://browsehappy.com/" target="_blank">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true" target="_blank">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+<noscript>
+    <p class="site-notice">This site requires JavaScript. Here are the instructions <a href="https://www.enable-javascript.com/" target="_blank">how to enable JavaScript in your web browser</a>.</p>
+</noscript>
+
+    <div class="nav-wrapper overlay-wrapper">
+    <div class="nav-form overlay-form">
+        <span class="overlay-header menu">Menu</span>
+        <a class="btn-close">Close</a>
+        <div class="results">
+            <ul>
+                <li><a href="/blog/categories/">Categories</a></li>
+                <li><a href="/blog/tags/">Tags</a></li>
+                <li><a href="/">About</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="search-wrapper overlay-wrapper">
+    <div class="search-form overlay-form">
+        <input type="text" class="overlay-header search-field" placeholder="Search...">
+        <a class="btn-close">Close</a>
+        <ul class="results"></ul>
+    </div>
+</div>
+
+
+    <div id="page" class="hentry">
+        <header class="the-header">
+    <div class="unit-head">
+        <div class="unit-inner unit-head-inner">
+            <nav class="nav-global">
+                <ul>
+                    <li class="logo nav-link">
+                        <button class="btn-menu" title="Menu"></button>
+                        <a href="/blog/">Brainy Tech Blog</a>
+                        <!--[if !IE]> -->
+                        <button class="btn-search" title="Search"></button>
+                        <!-- <![endif]-->
+                    </li>
+                    <li class="nav-link"><a title="Categories" href="/blog/categories/">Categories</a></li>
+                    <li class="nav-link"><a title="Tags" href="/blog/tags/">Tags</a></li>
+                    <!--[if !IE]> -->
+                    <li class="nav-link"><a title="Search" class="btn-search" href="#">Search</a></li>
+                    <!-- <![endif]-->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+
+        <div class="body animated fadeInDown" role="main">
+            <div class="unit-body">
+                <div class="unit-inner unit-body-inner">
+                    <div class="entry-content">
+                        <article class="unit-article layout-post">
+    <div class="unit-inner unit-article-inner">
+        <div itemscope itemtype="http://schema.org/Article" class="content">
+            <header>
+                <div class="unit-head">
+                    <div class="unit-inner unit-head-inner">
+                        <h1 class="entry-title" itemprop="name">Visualization of the model, MNIST - Day 4.</h1>
+                    </div>
+                </div>
+            </header>
+            <div class="bd article-content">
+                <div class="entry-content">
+                    <div class="meta">
+                        <p class="date-publish">
+                            Published:
+                            <time itemprop="datePublished" class="date-pub updated"
+                                title="2018-01-15T00:00:00+00:00" datetime="2018-01-15T00:00:00+00:00">January 15, 2018 </time>
+                            by
+                            <a class="author" href="/" rel="author" title="Show Author">
+                                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                    <span itemprop="name">Tonny Pham</span>
+                                </span>
+                            </a>
+                            
+                            
+                        </p>
+                        <ul class="list-category list-linear">
+                            <li class="list-head">Categories: </li>
+                             
+     
+        <li>
+            <a href="/blog/categories/#deep-learning" title="deep-learning">
+            deep-learning <span>4</span></a>
+        </li>
+    
+
+
+
+                        </ul>
+                        <ul class="list-tag list-linear">
+                            <li class="list-head">Tags: </li>
+                             
+    
+        
+        <li>
+            <a href="/blog/tags/#graphviz" title="graphviz">graphviz <span>1</span></a>
+        </li>
+    
+        
+        <li>
+            <a href="/blog/tags/#keras" title="keras">keras <span>4</span></a>
+        </li>
+    
+        
+        <li>
+            <a href="/blog/tags/#mnist" title="mnist">mnist <span>4</span></a>
+        </li>
+    
+        
+        <li>
+            <a href="/blog/tags/#model" title="model">model <span>1</span></a>
+        </li>
+    
+        
+        <li>
+            <a href="/blog/tags/#visualize" title="visualize">visualize <span>1</span></a>
+        </li>
+    
+
+
+
+
+                        </ul>
+                    </div>
+                    <div itemprop="articleBody">
+                        <h3 id="heading-the-previous-work">The previous work</h3>
+
+<p>At the end of <a href="/blog/2018/01/12/MNIST-day-3/">day 3</a>, we successfully trained a model for the dataset MNIST which achieve the accuracy of 99% after 12 runs. Let's little by little explore what do they do, and dig a little bit deeper into CNN and Keras.</p>
+
+<p>First I am very curious what does the model do, and their responsibility with Keras. A quick search leads me to document page of Keras and they are two types of models, a sequential one and one with functional API. Let's ignore the latter and focus on the one we had tested.</p>
+
+<h3 id="heading-keras-documents">Keras documents</h3>
+
+<p>Anybody want to read <a href="https://keras.io/getting-started/sequential-model-guide/">the document</a> themselves, follow the link. Here are some quick notes on the sequential model:</p>
+
+<ul>
+  <li>The Sequential model is a linear stack of layers.</li>
+  <li>The model needs to know what input shape it should expect, and the first and only the first layer in a Sequential model needs to receive information about its input shape.</li>
+  <li>You need to compile a model before training it</li>
+</ul>
+
+<h3 id="heading-visualization-efforts">Visualization efforts.</h3>
+
+<p>Keras has a document about <a href="https://keras.io/visualization/">visualing a model</a>. We are going to follow the step</p>
+
+<p>Look like we can use <code class="highlighter-rouge">keras.utils.vis_utils</code> to visualize the model with</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">keras.utils</span> <span class="kn">import</span> <span class="n">plot_model</span>
+<span class="n">plot_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">to_file</span><span class="o">=</span><span class="s">'model.png'</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>As the result, here is the code</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">keras</span>
+<span class="kn">from</span> <span class="nn">keras.utils</span> <span class="kn">import</span> <span class="n">plot_model</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span><span class="p">,</span> <span class="n">Flatten</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Conv2D</span><span class="p">,</span> <span class="n">MaxPooling2D</span>
+
+<span class="n">num_classes</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                 <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span>
+                 <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.25</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'softmax'</span><span class="p">))</span>
+
+<span class="n">model</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">categorical_crossentropy</span><span class="p">,</span>
+              <span class="n">optimizer</span><span class="o">=</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adadelta</span><span class="p">(),</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">'accuracy'</span><span class="p">])</span>
+
+<span class="n">plot_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">to_file</span><span class="o">=</span><span class="s">"model.png"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Running the code yield error</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ImportError('Failed to import pydot. You must install pydot'
+ImportError: Failed to import pydot. You must install pydot and graphviz for `pydotprint` to work.
+</code></pre>
+</div>
+
+<p>Install <code class="highlighter-rouge">pydot</code> and <code class="highlighter-rouge">graphviz</code> with</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip install pydot
+Collecting pydot
+Collecting pyparsing&gt;<span class="o">=</span>2.1.4 <span class="o">(</span>from pydot<span class="o">)</span>
+Building wheels <span class="k">for </span>collected packages: pydot
+Running setup.py bdist_wheel <span class="k">for </span>pydot ... <span class="k">done
+  </span>Stored <span class="k">in </span>directory: /home/Library/Caches/pip/wheels/62/48/83/42bc8712cb5f9bb93b8f3804e84b
+31024046981097729ff44e
+Successfully built pydot
+Installing collected packages: pyparsing,pydot
+Successfully installed pydot-1.2.4 pyparsing-2.2.0
+
+<span class="gp">$ </span>pip install graphviz
+Collecting graphviz
+  Downloading graphviz-0.8.2-py2.py3-none-any.whl
+Installing collected packages: graphviz
+Successfully installed graphviz-0.8.2
+</code></pre>
+</div>
+
+<p>Re-run the script with</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python visualize.py
+</code></pre>
+</div>
+
+<p>Give the following images
+<img src="/assets/images/mnist/model.png" alt="model.png" /></p>
+
+<h3 id="heading-next-step">Next step</h3>
+
+<p>The next step I want to visualize how each layer affects the images, to grasp the essential part of this model.</p>
+
+
+                    </div>
+                </div>
+            </div>
+            <footer class="unit-foot">
+                <div class="unit-inner unit-foot-inner">
+                    <div class="post-buttons">
+                        <a class="internal gotop" href="#page" title="Back to Top">Back to Top</a>
+                        
+                            <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+    <small class="label">Share Post:</small>
+    <a class="btn-share-post addthis_button_email"></a>
+    <a class="btn-share-post addthis_button_facebook"></a>
+    <a class="btn-share-post addthis_button_google_plusone_share"></a>
+    <a class="btn-share-post addthis_button_reddit"></a>
+    <a class="btn-share-post addthis_button_twitter"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a38b861aceaa4b0"></script>
+                        
+                    </div>
+                    <nav class="pagination">
+                        
+                            <a class="internal" rel="prev" href="/blog/2018/01/12/MNIST-day-3/" title=" 'The annoying MNIST - Day 3.'"> ← The annoying MNIST - Day 3.</a>
+                        
+                        
+                            <a class="internal" rel="next" href="/blog/2018/01/17/switch-from-disqus-to-facebook-comment/" title="Next Post 'Switch from Disqus to Facebook comment.'">Switch from Disqus to Facebook comment. → </a>
+                        
+                    </nav>
+                </div>
+            </footer>
+            <div class="misc-content">
+                
+                    <div class="lds-css ng-scope">
+  <div style="width:100%;height:100%;margin:0 auto;" class="lds-facebook">
+    <div></div> <div></div> <div></div> </div>
+<style type="text/css">@keyframes lds-facebook_1 {
+  0% {top: 36px; height: 128px; }
+  50% {top: 60px; height: 80px; }
+  100% {top: 60px; height: 80px; }
+}
+@-webkit-keyframes lds-facebook_1 {
+  0% {top: 36px; height: 128px; }
+  50% {top: 60px; height: 80px; }
+  100% {top: 60px; height: 80px; }
+}
+@keyframes lds-facebook_2 {
+  0% {top: 41.99999999999999px; height: 116.00000000000001px; }
+  50% {top: 60px; height: 80px; }
+  100% {top: 60px; height: 80px; }
+}
+@-webkit-keyframes lds-facebook_2 {
+  0% {top: 41.99999999999999px; height: 116.00000000000001px; }
+  50% {top: 60px; height: 80px; }
+  100% {top: 60px; height: 80px; }
+}
+@keyframes lds-facebook_3 {
+  0% {top: 48px; height: 104px; }
+  50% {top: 60px; height: 80px; }
+  100% {top: 60px; height: 80px; }
+}
+@-webkit-keyframes lds-facebook_3 {
+  0% {top: 48px; height: 104px; }
+  50% {top: 60px; height: 80px; }
+  100% {top: 60px; height: 80px; }
+}
+.lds-facebook {position: relative; }
+.lds-facebook div {position: absolute; width: 30px; }
+.lds-facebook div:nth-child(1) {
+  left: 35px;
+  background: #8cd0e5;
+  -webkit-animation: lds-facebook_1 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  animation: lds-facebook_1 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  -webkit-animation-delay: -0.2s;
+  animation-delay: -0.2s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 85px;
+  background: #376888;
+  -webkit-animation: lds-facebook_2 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  animation: lds-facebook_2 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  -webkit-animation-delay: -0.1s;
+  animation-delay: -0.1s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 135px;
+  background: #826b88;
+  -webkit-animation: lds-facebook_3 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  animation: lds-facebook_3 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook {
+  width: 200px !important;
+  height: 200px !important;
+  -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+}
+</style></div>
+                    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=1837817809776683';
+  js.onload = function() {
+	FB.Event.subscribe("xfbml.render", function(response) {
+		loading = document.getElementsByClassName('lds-css')[0]
+		loading.style.display = 'none';
+	});
+  }
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+                    <div class="comments">
+                        <div class="fb-comments" data-href="https://tonny.me/blog/2018/01/15/MNIST-day-4-visualize-model/" data-numposts="5" data-width="100%"></div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</article>
+<!-- <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us11.list-manage.com","uuid":"017ce8aff4e61cff908bb9fc2","lid":"ed5451cf9a"}) })</script> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="the-footer">
+    <div class="unit-foot">
+        <div class="unit-inner unit-foot-inner">
+            <div class="misc vcard">
+                <div class="about">
+                    <h4><a href="/">About</a></h4>
+                    
+                        <p>Roads were made for journeys, not destination. <br/> Codes were made for fantasy, not frustration <br/>@<a href="https://tonny.me">Tonny Pham</a> | <a href="/about/privacy">Privacy Policy</a>.</p>
+                    
+                    <p><small>Great thanks to Yi Feng for his <a href="https://github.com/yizeng/jekyll-theme-simple-texture" target="_blank">theme</a>, powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>.</small></p>
+                </div>
+                <div class="social-links">
+                    
+                        <a class="ico-gmail" href="mailto:its(at)thisdomain" rel="me" target="_blank" title="email"></a>
+                    
+                    <a class="ico-rss" href="/feed.xml" rel="me" target="_blank" title="feed"></a>
+                    
+                        
+                    
+                        
+                            <a class="ico-github" href="https://github.com/jwall149" rel="me" target="_blank" title="github"></a>
+                        
+                    
+                        
+                    
+                        
+                            <a class="ico-linkedin" href="https://www.linkedin.com/in/tonny-pham/" rel="me" target="_blank" title="linkedin"></a>
+                        
+                    
+                        
+                            <a class="ico-stackoverflow" href="https://stackoverflow.com/users/1041286/jwall" rel="me" target="_blank" title="stackoverflow"></a>
+                        
+                    
+                        
+                            <a class="ico-twitter" href="https://twitter.com/tech_tonny" rel="me" target="_blank" title="twitter"></a>
+                        
+                    
+                        
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="internal back-to-top">Back to Top</a>
+<!--  Build Env <div></div>
+ -->
+</footer>
+
+    </div>
+
+    <script>
+$(document).ready(function () {
+    var offset = 50,
+        duration = 500,
+        width = 960;
+    $(window).scroll(function () {
+        if ($(window).width() > width) {
+            if ($(this).scrollTop() > offset) {
+                $('footer').css('top', '20px');
+                $('footer .back-to-top').fadeIn(duration);
+            } else {
+                $('footer').css('top', 'auto');
+                $('footer .back-to-top').fadeOut(duration);
+            }
+        }
+    });
+    $(window).resize(function () {
+        if ($(window).width() < width) {
+            $('footer').css('top', 'auto');
+            $('footer .back-to-top').fadeOut(duration);
+        }
+        if ($(window).width() >= width && $(this).scrollTop() > offset) {
+            $('footer').css('top', '20px');
+            $('footer .back-to-top').fadeIn(duration);
+        }
+    });
+
+    $('footer .back-to-top, .gotop').on('click', function (event) {
+        event.preventDefault();
+        $('html, body').animate({
+            scrollTop: 0
+        }, duration);
+        return false;
+    });
+
+    $('.show-hidden').on('click', function () {
+        $(this).parent().next().toggleClass("hidden");
+        $(this).toggleClass("hidden");
+    });
+});
+</script>
+
+<!-- Google Analytics Event tracking -->
+
+<script>
+$(document).on('click', 'footer .back-to-top, .gotop', function (event) {
+    sendGaEvent('Blog', 'Back to Top', event.currentTarget);
+});
+$(document).on('click', '.show-hidden', function (event) {
+    sendGaEvent('Post', 'Show Hidden', event.currentTarget);
+});
+$(document).on('click', 'a.internal', function(event) {
+    sendGaEvent('Blog', 'Navigate', event.currentTarget);
+});
+$('.the-header').on('click', '.nav-link a, [class$=wrapper] .results a, .nav-link button', function(event) {
+    sendGaEvent('Blog', 'Navigate', event.currentTarget);
+});
+$('.the-header').on('click', '.nav-link button', function(event) {
+    sendGaEvent('Blog', 'Navigate', event.currentTarget);
+});
+$('.the-footer').on('click', '.about h4 a', function(event) {
+    sendGaEvent('Blog', 'Go to About', event.currentTarget);
+});
+$('.the-footer').on('click', '.social-links a', function(event) {
+    sendGaEvent('Blog', 'Click Social Link', event.currentTarget);
+});
+$('.unit-article').on('click', '.tag_box.categories a', function(event) {
+    sendGaEvent('Blog', 'Click Category', event.currentTarget);
+});
+$('.unit-article').on('click', '.tag_box.tags a', function(event) {
+    sendGaEvent('Blog', 'Click Tag', event.currentTarget);
+});
+$('.unit-article').on('click', '.comments .show-hidden', function(event) {
+    sendGaEvent('Post', 'Show Comments', event.currentTarget);
+});
+$('.unit-article').on('click', '.meta .author', function(event) {
+    sendGaEvent('Post', 'Show Author', event.currentTarget);
+});
+$('.unit-article').on('click', '.meta .license-icon', function(event) {
+    sendGaEvent('Post', 'Show License', event.currentTarget);
+});
+$('.unit-article').on('click', '.meta .list-tag a', function(event) {
+    sendGaEvent('Post', 'Click Tag', event.currentTarget);
+});
+$('.unit-article').on('click', '.meta .list-category', function(event) {
+    sendGaEvent('Post', 'Click Category', event.currentTarget);
+});
+$('.unit-foot').delegate('.addthis_toolbox .btn-share-post', 'click', function(event) {
+    sendGaEvent('Post', 'Share Post', event.currentTarget);
+});
+$('.search-wrapper').on('click', '.results a', function(event) {
+    sendGaEvent('Search', 'Click Search Result', event.currentTarget);
+});
+$('.search-wrapper').on('click', '.btn-close', function(event) {
+    sendGaEvent('Search', 'Close Search', event.currentTarget);
+});
+</script>
+
+
+<!-- Show menu overlay + Jekyll Simple Search option -->
+<script src="/assets/javascripts/jekyll-search.jquery.js"></script>
+<script>
+$(document).ready(function () {
+    $('.search-field').simpleJekyllSearch({
+      jsonFile: '/search.json',
+      template: '<li><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></li>',
+      searchResults: '.search-wrapper .results',
+      searchResultsTitle: '<h4>Search results</h4>',
+      noResults: '<p>Oh shucks<br/><small>Nothing found :(</small></p>'
+    });
+});
+
+(function ($, window, undefined) {
+    var closeOverlay = function () {
+        $('.nav-wrapper, .search-wrapper').removeAttr('style');
+        $(".nav-form, .search-form").removeClass('active');
+        $("body").removeClass('nav-overlay search-overlay');
+    };
+
+    $('.nav-global .btn-search').on('click', function () {
+        $('.search-wrapper').css({display: "block"});
+        $(".search-form").addClass('active');
+        $(".search-form").find('input').focus();
+        $("body").addClass('search-overlay');
+    });
+
+    $('.nav-global .btn-menu').on('click', function () {
+        $('.nav-wrapper').css({display: "block"});
+        $(".nav-form").addClass('active');
+        $(".nav-form .search-field").prop('disabled', true);
+        $("body").addClass('nav-overlay');
+    });
+
+    $('.nav-wrapper .btn-close, .search-wrapper .btn-close').on('click', function () {
+        closeOverlay();
+    });
+
+    $(document).on('keyup', function (e) {
+        if (e.keyCode === 27) {
+            closeOverlay();
+        }
+    });
+})(jQuery, window);
+</script>
+
+<script src='//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-buttons.min.js'></script>
+<script src="/assets/javascripts/unveil/jquery.unveil.min.js"></script>
+
+<script>
+    window.jQuery.fancybox || document.write('<script src="/assets/javascripts/fancybox/jquery.fancybox.pack.js?v=2.1.4"><\/script>')
+    window.jQuery.fancybox.helpers.buttons || document.write('<script src="/assets/javascripts/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5"><\/script>')
+</script>
+
+<script>
+    $("head").append('<link rel="stylesheet" href="/assets/javascripts/fancybox/jquery.fancybox.css?v=2.1.4" type="text/css" />');
+    $("head").append('<link rel="stylesheet" href="/assets/javascripts/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" />');
+    $(".post-image").fancybox({
+        prevEffect: 'none',
+        nextEffect: 'none',
+        closeBtn: true,
+        helpers: {
+            title: {
+                type: 'float'
+            }
+        }
+    });
+    $(document).ready(function () {
+        $(".post-image > img").unveil(450);
+    });
+</script>
+
+</body>
+
+</html>
