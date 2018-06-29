@@ -47,7 +47,7 @@ jobs: # a collection of steps
 
       - run: git config user.name "Tonny Pham"
       - run: git config user.email "noreply@tonny.me"
+      - run: git remote set-url origin  https://${GH_TOKEN}:x-oauth-basic@jwall149/tonny.me.git
       - run: git add docs
       - run: git commit --allow-empty -m "Deploy to GitHub pages [ci skip]"
-      - run: git push origin master
-
+      - run: git push -u origin master
