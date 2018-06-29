@@ -37,8 +37,8 @@ jobs: # a collection of steps
             - vendor/bundle
 
       - run:
-        name: Build to ./docs
-        command: bundle exec jekyll build --destination docs
+          name: Build to ./docs
+          command: bundle exec jekyll build --destination docs
 
       # - run:
       #   name: Test html
