@@ -9,3 +9,6 @@ group :jekyll_plugins do
   gem 'jekyll-seo-tag'
   gem 'jekyll-sitemap'
 end
+
+# Added at 2018-06-29 16:29:56 +0900 by tonnypham:
+gem "html-proofer", "~> 3.9"

@@ -1,0 +1,51 @@
+version: 2 # use CircleCI 2.0
+jobs: # a collection of steps
+  build: # runs not using Workflows must have a `build` job as entry point
+    docker: # run the steps with Docker
+      - image: circleci/ruby:2.4-node # ...with this image as the primary container; this is where all `steps` will run
+        environment: # environment variables for primary container
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          PGHOST: 127.0.0.1
+          PGUSER: circleci-demo-ruby
+          RAILS_ENV: test
+    branches:
+      only:
+        - master
+    steps: # a collection of executable commands
+      - checkout # special step to check out source code to working directory
+
+      - run:
+          name: Which bundler?
+          command: bundle -v
+
+      # Restore bundle cache
+      - restore_cache:
+          keys:
+            - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - rails-demo-bundle-v2-
+
+      - run:
+          name: Bundle Install
+          command: bundle check || bundle install
+
+      # Store bundle cache
+      - save_cache:
+          key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run:
+        name: Build to ./docs
+        command: bundle exec jekyll build --destination docs
+
+      # - run:
+      #   name: Test html
+      #   command: bundle exec htmlproofer ./_site --check-html --disable-external
+      # See https://circleci.com/docs/2.0/deployment-integrations/ for example deploy configs
+
+      - run: git add docs
+      - run: git commit --allow-empty -m "Deploy to GitHub pages [ci skip]"
+      - run: git push origin master
+
